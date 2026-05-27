@@ -38,6 +38,7 @@
 - `DEPLOY.md`：發布流程與部署方式
 - `CHANGELOG.md`：版本更新紀錄
 - `VERSION`：目前發佈版本號
+- `CNAME.example`：GitHub Pages 自訂網域範本
 
 1. `assets/examples/cli/main.py`
 2. `assets/examples/tkinter/main.py`

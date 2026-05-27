@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03. 基本參數全覽</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/interactive.js"></script>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <div class="container nav-wrap">
+        <a class="nav-brand" href="../index.html">auto-py-to-exe 教學</a>
+        <div class="nav-links">
+          <a href="basics.html">環境</a>
+          <a href="packaging.html">型態</a>
+          <a href="parameters.html">參數</a>
+          <a href="scenarios.html">情境</a>
+          <a href="heavy-libs.html">重型套件</a>
+          <a href="troubleshooting.html">除錯</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container content">
+      <h1>03. 各種基本參數</h1>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>參數</th>
+              <th>用途</th>
+              <th>常見搭配</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>--name</td><td>設定輸出名稱</td><td>所有專案都建議設定</td></tr>
+            <tr><td>--icon</td><td>設定圖示</td><td>GUI 工具常用</td></tr>
+            <tr><td>--console</td><td>顯示終端視窗</td><td>CLI 需要</td></tr>
+            <tr><td>--windowed</td><td>隱藏終端視窗</td><td>Tkinter/PySide 常用</td></tr>
+            <tr><td>--add-data</td><td>帶入非程式檔案</td><td>模型、模板、設定檔</td></tr>
+            <tr><td>--hidden-import</td><td>補齊動態匯入模組</td><td>cv2、pkg_resources 類場景</td></tr>
+            <tr><td>--collect-all</td><td>打包完整套件資源</td><td>重型套件救援用</td></tr>
+            <tr><td>--clean</td><td>清理快取重打包</td><td>疑難排解常用</td></tr>
+            <tr><td>--noconfirm</td><td>覆蓋輸出不詢問</td><td>批次建置常用</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="command-builder">互動指令產生器</h2>
+      <form id="builderForm">
+        <fieldset>
+          <legend class="legend">輸出模式</legend>
+          <label><input type="radio" name="mode" value="--onefile" checked /> One File</label>
+          <label><input type="radio" name="mode" value="--onedir" /> One Directory</label>
+        </fieldset>
+
+        <fieldset>
+          <legend class="legend">基本資訊</legend>
+          <label>App Name: <input id="appName" value="demo_app" /></label>
+          <label>Script Path: <input id="scriptPath" value="main.py" /></label>
+          <label>Icon Path: <input id="iconPath" placeholder="assets/app.ico" /></label>
+        </fieldset>
+
+        <fieldset>
+          <legend class="legend">常用旗標</legend>
+          <label><input id="windowed" type="checkbox" /> --windowed</label>
+          <label><input id="clean" type="checkbox" checked /> --clean</label>
+          <label><input id="noconfirm" type="checkbox" checked /> --noconfirm</label>
+        </fieldset>
+
+        <fieldset>
+          <legend class="legend">進階</legend>
+          <label>Hidden Imports (comma): <input id="hiddenImports" placeholder="cv2,ultralytics" /></label>
+          <label>Add Data (one per line, src;dest):</label>
+          <textarea id="addData" rows="3" placeholder="model\yolo11n.pt;model"></textarea>
+          <label>Collect All (comma): <input id="collectAll" placeholder="cv2,numpy" /></label>
+        </fieldset>
+      </form>
+
+      <p class="output" id="commandOutput"></p>
+      <button class="btn" type="button" onclick="copyCommand()">複製命令</button>
+    </main>
+  </body>
+</html>

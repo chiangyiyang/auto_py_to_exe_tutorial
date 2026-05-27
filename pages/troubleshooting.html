@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>06. 疑難排解</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script defer src="../js/main.js"></script>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <div class="container nav-wrap">
+        <a class="nav-brand" href="../index.html">auto-py-to-exe 教學</a>
+        <div class="nav-links">
+          <a href="basics.html">環境</a>
+          <a href="packaging.html">型態</a>
+          <a href="parameters.html">參數</a>
+          <a href="scenarios.html">情境</a>
+          <a href="heavy-libs.html">重型套件</a>
+          <a href="troubleshooting.html">除錯</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container content">
+      <h1>06. 常見錯誤與排查流程</h1>
+
+      <h2>問題 1: ModuleNotFoundError</h2>
+      <ol>
+        <li>確認在正確 venv 內執行打包。</li>
+        <li>加入 --hidden-import 逐步補齊。</li>
+        <li>必要時改用 --collect-all 套件名。</li>
+      </ol>
+
+      <h2>問題 2: 找不到模型/設定/模板檔</h2>
+      <ol>
+        <li>檢查 --add-data 路徑是否為 src;dest。</li>
+        <li>使用 resource_path 寫法處理打包後路徑。</li>
+        <li>確認資料檔實際存在於 dist。</li>
+      </ol>
+
+      <h2>問題 3: EXE 被防毒隔離</h2>
+      <ol>
+        <li>先改成 onedir 測試誤判情況。</li>
+        <li>避免過度壓縮或可疑打包參數。</li>
+        <li>正式發佈可考慮程式簽章。</li>
+      </ol>
+
+      <h2>問題 4: 啟動很慢或檔案很大</h2>
+      <ol>
+        <li>onefile 先天啟動慢，對重型套件可改 onedir。</li>
+        <li>檢視是否 collect-all 過多，改為精準 hidden-import。</li>
+        <li>將大型模型改為首次下載或外部更新。</li>
+      </ol>
+
+      <div class="callout">
+        <strong>排查順序：</strong>環境正確性 → 路徑與資源檔 → 模組收集 → 打包型態取捨。
+      </div>
+    </main>
+  </body>
+</html>

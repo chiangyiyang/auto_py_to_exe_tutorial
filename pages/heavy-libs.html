@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05. OpenCV / YOLO / Web 打包重點</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script defer src="../js/main.js"></script>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <div class="container nav-wrap">
+        <a class="nav-brand" href="../index.html">auto-py-to-exe 教學</a>
+        <div class="nav-links">
+          <a href="basics.html">環境</a>
+          <a href="packaging.html">型態</a>
+          <a href="parameters.html">參數</a>
+          <a href="scenarios.html">情境</a>
+          <a href="heavy-libs.html">重型套件</a>
+          <a href="troubleshooting.html">除錯</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container content">
+      <h1>05. 常見套件與附屬資料檔案打包重點</h1>
+
+      <h2>OpenCV</h2>
+      <ul>
+        <li>常見問題是 cv2 子模組或 DLL 未被正確收集。</li>
+        <li>先試 hidden-import，不夠再用 collect-all。</li>
+      </ul>
+      <pre class="code-block">pyinstaller --onefile --hidden-import cv2 --collect-all cv2 app_cv.py</pre>
+
+      <h2>YOLO (ultralytics + torch)</h2>
+      <ul>
+        <li>模型檔例如 yolo11n.pt 需用 add-data 帶入。</li>
+        <li>模型路徑請以執行期路徑解析，不要寫死開發路徑。</li>
+      </ul>
+      <pre class="code-block">pyinstaller --onedir --collect-all ultralytics --collect-all torch --add-data "model\yolo11n.pt;model" app_yolo.py</pre>
+
+      <h2>FastAPI / Flask</h2>
+      <ul>
+        <li>模板與靜態檔需要 add-data。</li>
+        <li>EXE 適合內部 Demo，正式部署仍建議容器或服務流程。</li>
+      </ul>
+      <pre class="code-block">pyinstaller --onedir --add-data "templates;templates" --add-data "static;static" app_web.py</pre>
+
+      <h2>附屬資料檔案讀取範例</h2>
+      <pre class="code-block">from pathlib import Path
+import sys
+
+def resource_path(rel_path: str) -> Path:
+    if hasattr(sys, "_MEIPASS"):
+        return Path(sys._MEIPASS) / rel_path
+    return Path(__file__).resolve().parent / rel_path
+
+model_path = resource_path("model/yolo11n.pt")</pre>
+
+      <div class="callout">
+        <strong>關鍵：</strong>重型套件先用 onedir 驗證，再決定是否轉 onefile，以免除錯成本過高。
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>auto-py-to-exe 教學實戰</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow">Windows Packaging Playbook</p>
+        <h1>auto-py-to-exe 教學實戰</h1>
+        <p class="subtitle">
+          從虛擬環境開始，走到可交付 EXE。包含 onefile/onedir、參數總覽、OpenCV/YOLO、Web 服務打包重點。
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="pages/basics.html">開始教學</a>
+          <a class="btn" href="pages/parameters.html#command-builder">立即產生命令</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="grid cards">
+        <a class="card" href="pages/basics.html">
+          <h2>01. 環境與第一個 EXE</h2>
+          <p>建立 venv、安裝 auto-py-to-exe，完成第一個 hello.exe。</p>
+        </a>
+        <a class="card" href="pages/packaging.html">
+          <h2>02. 打包型態比較</h2>
+          <p>onefile 與 onedir 選擇策略、速度、體積與更新方式。</p>
+        </a>
+        <a class="card" href="pages/parameters.html">
+          <h2>03. 基本參數全覽</h2>
+          <p>name、icon、console/windowed、add-data、hidden-import 等。</p>
+        </a>
+        <a class="card" href="pages/scenarios.html">
+          <h2>04. 常見打包情境</h2>
+          <p>CLI、Tkinter、帶資源檔、批次建置工作流程。</p>
+        </a>
+        <a class="card" href="pages/heavy-libs.html">
+          <h2>05. OpenCV / YOLO / Web</h2>
+          <p>重型套件與附屬資料檔打包重點，避免執行期找不到檔案。</p>
+        </a>
+        <a class="card" href="pages/troubleshooting.html">
+          <h2>06. 疑難排解</h2>
+          <p>DLL 遺漏、路徑錯誤、防毒誤判、啟動緩慢等排查手順。</p>
+        </a>
+      </section>
+
+      <section class="panel">
+        <h2>課程路線圖</h2>
+        <ol>
+          <li>建立獨立虛擬環境，固定依賴版本。</li>
+          <li>先做最小打包，確認流程可跑通。</li>
+          <li>再導入圖示、資源檔、隱藏匯入等進階參數。</li>
+          <li>最後處理 OpenCV / YOLO 模型檔與 Web 靜態資源。</li>
+          <li>以「乾淨機器測試」驗證交付品質。</li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <p>Built for beginners. Practical, repeatable, Windows-first.</p>
+    </footer>
+  </body>
+</html>

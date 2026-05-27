@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04. 常見打包方式</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script defer src="../js/main.js"></script>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <div class="container nav-wrap">
+        <a class="nav-brand" href="../index.html">auto-py-to-exe 教學</a>
+        <div class="nav-links">
+          <a href="basics.html">環境</a>
+          <a href="packaging.html">型態</a>
+          <a href="parameters.html">參數</a>
+          <a href="scenarios.html">情境</a>
+          <a href="heavy-libs.html">重型套件</a>
+          <a href="troubleshooting.html">除錯</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container content">
+      <h1>04. 各種常見打包方式</h1>
+
+      <h2>A. CLI 工具</h2>
+      <pre class="code-block">pyinstaller --onefile --console --name cli_tool src/cli_main.py</pre>
+      <p>適合命令列工具、排程工具。建議保留 console 方便追錯。</p>
+
+      <h2>B. Tkinter GUI</h2>
+      <pre class="code-block">pyinstaller --onedir --windowed --icon assets/app.ico --name tk_tool src/gui_main.py</pre>
+      <p>GUI 預設用 onedir 方便調整資源檔，穩定後再切 onefile。</p>
+
+      <h2>C. 帶設定檔與資料檔</h2>
+      <pre class="code-block">pyinstaller --onefile --add-data "config;config" --add-data "assets;assets" src/main.py</pre>
+      <p>Windows 下 add-data 分隔使用分號 src;dest。</p>
+
+      <h2>D. 批次建置</h2>
+      <pre class="code-block">pyinstaller --noconfirm --clean --onefile --name release_app src/main.py</pre>
+      <p>建議搭配 .bat 或 CI 工作流程固定參數，降低人為差異。</p>
+
+      <div class="callout">
+        <strong>最常見原則：</strong>先求可跑，再求小體積。先確保程式在 dist 可用，再做精簡。
+      </div>
+    </main>
+  </body>
+</html>

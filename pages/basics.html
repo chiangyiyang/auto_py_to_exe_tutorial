@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01. 環境與第一個 EXE</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script defer src="../js/main.js"></script>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <div class="container nav-wrap">
+        <a class="nav-brand" href="../index.html">auto-py-to-exe 教學</a>
+        <div class="nav-links">
+          <a href="basics.html">環境</a>
+          <a href="packaging.html">型態</a>
+          <a href="parameters.html">參數</a>
+          <a href="scenarios.html">情境</a>
+          <a href="heavy-libs.html">重型套件</a>
+          <a href="troubleshooting.html">除錯</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container content">
+      <h1>01. 從虛擬環境開始</h1>
+      <p>這個章節會讓你在乾淨環境完成第一個可執行檔，後續所有章節都建立在這個流程上。</p>
+
+      <h2>Step 1: 建立專案與 venv</h2>
+      <pre class="code-block">mkdir demo_pack
+cd demo_pack
+    python -m venv env
+    env\Scripts\activate</pre>
+
+      <h2>Step 2: 安裝工具與相依套件</h2>
+      <pre class="code-block">python -m pip install --upgrade pip
+pip install auto-py-to-exe pyinstaller
+pip freeze &gt; requirements.txt</pre>
+
+      <h2>Step 3: 建立最小範例</h2>
+      <pre class="code-block"># hello.py
+print("hello exe")</pre>
+
+      <h2>Step 4A: 使用 auto-py-to-exe（GUI）</h2>
+      <pre class="code-block">auto-py-to-exe</pre>
+      <p>在 GUI 中選擇 Script、Onefile、Console Based，按下 Convert .py to .exe。</p>
+
+      <h2>Step 4B: 對照等價 pyinstaller 指令</h2>
+      <pre class="code-block">pyinstaller --onefile --console --name hello_app hello.py</pre>
+
+      <h2>Step 5: 驗證輸出</h2>
+      <p>若成功，輸出在 dist 資料夾。把 exe 複製到其他目錄執行，確認不依賴本機 Python。</p>
+
+      <div class="callout">
+        <strong>常見錯誤：</strong>忘記啟用 venv、在系統 Python 安裝套件、或同時混用多個 Python 版本。
+      </div>
+    </main>
+  </body>
+</html>

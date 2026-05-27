@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02. 打包型態比較</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script defer src="../js/main.js"></script>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <div class="container nav-wrap">
+        <a class="nav-brand" href="../index.html">auto-py-to-exe 教學</a>
+        <div class="nav-links">
+          <a href="basics.html">環境</a>
+          <a href="packaging.html">型態</a>
+          <a href="parameters.html">參數</a>
+          <a href="scenarios.html">情境</a>
+          <a href="heavy-libs.html">重型套件</a>
+          <a href="troubleshooting.html">除錯</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container content">
+      <h1>02. 打包型態 + 範例</h1>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>型態</th>
+              <th>參數</th>
+              <th>優點</th>
+              <th>缺點</th>
+              <th>適用情境</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>One File</td>
+              <td>--onefile</td>
+              <td>單一檔案方便分發</td>
+              <td>首次啟動較慢、較易誤判</td>
+              <td>給非技術使用者快速交付</td>
+            </tr>
+            <tr>
+              <td>One Directory</td>
+              <td>--onedir</td>
+              <td>啟動快、除錯容易</td>
+              <td>檔案多，不利傳遞</td>
+              <td>內部工具、頻繁更新</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>範例 1: CLI 快速交付</h2>
+      <pre class="code-block">pyinstaller --onefile --console --name text_tool cli_tool.py</pre>
+
+      <h2>範例 2: GUI 桌面工具</h2>
+      <pre class="code-block">pyinstaller --onedir --windowed --icon app.ico --name desk_tool gui_app.py</pre>
+
+      <h2>範例 3: 帶設定檔與模板</h2>
+      <pre class="code-block">pyinstaller --onedir --add-data "config;config" --add-data "templates;templates" app.py</pre>
+
+      <div class="callout">
+        <strong>策略建議：</strong>開發期優先 onedir，發佈期依需求切 onefile；不要一開始就用最複雜參數。
+      </div>
+    </main>
+  </body>
+</html>

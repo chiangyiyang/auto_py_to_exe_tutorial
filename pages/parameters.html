@@ -49,6 +49,24 @@
       </div>
 
       <h2 id="command-builder">互動指令產生器</h2>
+
+      <fieldset>
+        <legend class="legend">範例預設切換器</legend>
+        <label>
+          選擇範例：
+          <select id="presetSelect">
+            <option value="">手動設定（不套用）</option>
+            <option value="cli">CLI 命令列工具</option>
+            <option value="tkinter">Tkinter 視窗工具</option>
+            <option value="opencv">OpenCV 影像處理</option>
+            <option value="yolo">YOLO 模型載入</option>
+            <option value="web">Flask 網頁服務</option>
+          </select>
+        </label>
+        <button class="btn" id="applyPresetBtn" type="button">套用預設參數</button>
+        <p class="callout">套用後會自動更新輸出模式、入口檔、進階參數與命令結果。</p>
+      </fieldset>
+
       <form id="builderForm">
         <fieldset>
           <legend class="legend">輸出模式</legend>

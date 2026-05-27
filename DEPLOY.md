@@ -17,10 +17,18 @@
 
 ## 發布方式 B：GitHub Pages
 
-1. 建立遠端儲存庫並推送本專案
-2. 在 GitHub 專案設定啟用 Pages
-3. Source 選擇部署分支（例如 master）
-4. 完成後以公開網址提供教學內容
+本專案已提供自動部署工作流：.github/workflows/deploy-pages.yml
+
+1. 推送最新程式碼到 GitHub（master 分支）
+2. 到 GitHub 專案頁面，進入 Settings > Pages
+3. Build and deployment 的 Source 選 GitHub Actions
+4. 到 Actions 分頁確認 Deploy static site to GitHub Pages 成功
+5. 成功後會產生公開網址：
+	https://<你的帳號>.github.io/<你的倉庫名稱>/
+
+備註：
+- 之後每次 push 到 master，會自動重新部署
+- 如需手動重發，可在 Actions 頁用 Run workflow
 
 ## 發布方式 C：一般靜態主機
 

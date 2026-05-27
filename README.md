@@ -1,5 +1,7 @@
 # auto-py-to-exe 教學網站（Windows）
 
+目前版本：v1.0.0（2026-05-27）
+
 這是一個以 HTML + JS + CSS 製作的教學網站，內容聚焦於：
 - 打包型態與實例
 - 基本參數與命令組合
@@ -30,6 +32,12 @@
 - `pages/example-opencv.html`：OpenCV 範例頁
 - `pages/example-yolo.html`：YOLO 範例頁
 - `pages/example-web.html`：Flask 範例頁
+
+## 對外發布文件
+
+- `DEPLOY.md`：發布流程與部署方式
+- `CHANGELOG.md`：版本更新紀錄
+- `VERSION`：目前發佈版本號
 
 1. `assets/examples/cli/main.py`
 2. `assets/examples/tkinter/main.py`

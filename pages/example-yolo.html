@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>範例：YOLO</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script defer src="../js/main.js"></script>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <div class="container nav-wrap">
+        <a class="nav-brand" href="../index.html">auto-py-to-exe 教學</a>
+        <div class="nav-links">
+          <a href="heavy-libs.html">重型套件</a>
+          <a href="parameters.html">參數</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container content">
+      <h1>範例：YOLO 模型載入</h1>
+      <p>此範例重點在模型檔 yolo11n.pt 的打包與執行期路徑解析。</p>
+
+      <h2>範例位置</h2>
+      <pre class="code-block">assets/examples/yolo/main.py</pre>
+
+      <h2>安裝與準備</h2>
+      <pre class="code-block">pip install -r requirements.txt
+# 將 yolo11n.pt 放入 model/ 目錄
+python main.py</pre>
+
+      <h2>pyinstaller 指令</h2>
+      <pre class="code-block">pyinstaller --onedir --console --name yolo_sample --collect-all ultralytics --collect-all torch --add-data "model;yolo_model" main.py</pre>
+
+      <h2>auto-py-to-exe 設定</h2>
+      <ul>
+        <li>腳本位置（Script Location）：main.py</li>
+        <li>資料夾模式（One Directory）</li>
+        <li>主控台模式（Console Based）</li>
+        <li>附加檔案（Additional Files）：model -> yolo_model</li>
+        <li>進階參數（Advanced）：--collect-all ultralytics、--collect-all torch</li>
+      </ul>
+    </main>
+  </body>
+</html>

@@ -28,10 +28,12 @@
       <h2>A. CLI 工具</h2>
       <pre class="code-block">pyinstaller --onefile --console --name cli_tool src/cli_main.py</pre>
       <p>適合命令列工具、排程工具。建議保留 console 方便追錯。</p>
+      <p><a class="btn" href="example-cli.html">查看 CLI 範例頁</a></p>
 
       <h2>B. Tkinter GUI</h2>
       <pre class="code-block">pyinstaller --onedir --windowed --icon assets/app.ico --name tk_tool src/gui_main.py</pre>
       <p>GUI 預設用 onedir 方便調整資源檔，穩定後再切 onefile。</p>
+      <p><a class="btn" href="example-tkinter.html">查看 Tkinter 範例頁</a></p>
 
       <h2>C. 帶設定檔與資料檔</h2>
       <pre class="code-block">pyinstaller --onefile --add-data "config;config" --add-data "assets;assets" src/main.py</pre>
@@ -44,6 +46,9 @@
       <div class="callout">
         <strong>最常見原則：</strong>先求可跑，再求小體積。先確保程式在 dist 可用，再做精簡。
       </div>
+
+      <h2>範例總覽</h2>
+      <p><a class="btn" href="example-cli.html">從 CLI 範例開始</a></p>
     </main>
   </body>
 </html>

@@ -1,4 +1,4 @@
-# auto-py-to-exe Tutorial (Windows)
+# auto-py-to-exe 教學網站（Windows）
 
 這是一個以 HTML + JS + CSS 製作的教學網站，內容聚焦於：
 - 打包型態與實例
@@ -19,6 +19,23 @@
 4. `pages/scenarios.html`：常見打包方式
 5. `pages/heavy-libs.html`：OpenCV / YOLO / Web 打包重點
 6. `pages/troubleshooting.html`：常見錯誤與排查
+7. `pages/auto-py-to-exe-ui.html`：auto-py-to-exe 介面導覽
+
+## 可執行範例（含網頁說明）
+
+所有範例索引：`assets/examples/README.md`
+
+- `pages/example-cli.html`：CLI 範例頁
+- `pages/example-tkinter.html`：Tkinter 範例頁
+- `pages/example-opencv.html`：OpenCV 範例頁
+- `pages/example-yolo.html`：YOLO 範例頁
+- `pages/example-web.html`：Flask 範例頁
+
+1. `assets/examples/cli/main.py`
+2. `assets/examples/tkinter/main.py`
+3. `assets/examples/opencv/main.py`
+4. `assets/examples/yolo/main.py`
+5. `assets/examples/web/app.py`
 
 ## 建議練習流程
 
@@ -30,6 +47,6 @@
 
 ## 後續可擴充
 
-- 加入完整 sample 程式碼於 `assets/examples/`
+- 加入參數頁的範例預設切換器（依樣板自動帶參數）
 - 加入一鍵複製 code snippet 與關鍵字搜尋
 - 補上 CI 建置與簽章章節

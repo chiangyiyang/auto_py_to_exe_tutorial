@@ -26,29 +26,30 @@
       <h1>01. 從虛擬環境開始</h1>
       <p>這個章節會讓你在乾淨環境完成第一個可執行檔，後續所有章節都建立在這個流程上。</p>
 
-      <h2>Step 1: 建立專案與 venv</h2>
+      <h2>步驟 1：建立專案與 venv</h2>
       <pre class="code-block">mkdir demo_pack
 cd demo_pack
     python -m venv env
     env\Scripts\activate</pre>
 
-      <h2>Step 2: 安裝工具與相依套件</h2>
+      <h2>步驟 2：安裝工具與相依套件</h2>
       <pre class="code-block">python -m pip install --upgrade pip
 pip install auto-py-to-exe pyinstaller
 pip freeze &gt; requirements.txt</pre>
 
-      <h2>Step 3: 建立最小範例</h2>
+      <h2>步驟 3：建立最小範例</h2>
       <pre class="code-block"># hello.py
 print("hello exe")</pre>
 
-      <h2>Step 4A: 使用 auto-py-to-exe（GUI）</h2>
+      <h2>步驟 4A：使用 auto-py-to-exe（圖形介面）</h2>
       <pre class="code-block">auto-py-to-exe</pre>
-      <p>在 GUI 中選擇 Script、Onefile、Console Based，按下 Convert .py to .exe。</p>
+      <p>在介面中選擇腳本位置（Script Location）、Onefile、主控台模式（Console Based），按下轉換按鈕。</p>
+      <p><a class="btn" href="auto-py-to-exe-ui.html">查看完整介面導覽</a></p>
 
-      <h2>Step 4B: 對照等價 pyinstaller 指令</h2>
+      <h2>步驟 4B：對照等價 pyinstaller 指令</h2>
       <pre class="code-block">pyinstaller --onefile --console --name hello_app hello.py</pre>
 
-      <h2>Step 5: 驗證輸出</h2>
+      <h2>步驟 5：驗證輸出</h2>
       <p>若成功，輸出在 dist 資料夾。把 exe 複製到其他目錄執行，確認不依賴本機 Python。</p>
 
       <div class="callout">

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>07. auto-py-to-exe 介面導覽</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script defer src="../js/main.js"></script>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <div class="container nav-wrap">
+        <a class="nav-brand" href="../index.html">auto-py-to-exe 教學</a>
+        <div class="nav-links">
+          <a href="basics.html">環境</a>
+          <a href="packaging.html">型態</a>
+          <a href="parameters.html">參數</a>
+          <a href="scenarios.html">情境</a>
+          <a href="heavy-libs.html">重型套件</a>
+          <a href="troubleshooting.html">除錯</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container content">
+      <h1>07. auto-py-to-exe 介面說明</h1>
+      <p>本頁對應 auto-py-to-exe 視窗中的主要區塊，讓你能從介面操作對照到 pyinstaller 參數。</p>
+
+      <h2>1) 腳本位置（Script Location）</h2>
+      <p>選擇要打包的 Python 入口檔，例如 main.py。這對應到 pyinstaller 命令最後的腳本路徑。</p>
+
+      <h2>2) Onefile / Onedir</h2>
+      <ul>
+        <li>Onefile：輸出單一 exe，方便分發，首次啟動較慢。</li>
+        <li>Onedir：輸出資料夾，啟動較快，除錯較容易。</li>
+      </ul>
+
+      <h2>3) 主控台模式 / 視窗模式</h2>
+      <ul>
+        <li>主控台模式（Console Based）對應 --console，適合 CLI。</li>
+        <li>視窗模式（Window Based）對應 --windowed，適合 GUI。</li>
+      </ul>
+
+      <h2>4) Icon</h2>
+      <p>可設定輸出程式圖示，對應參數 --icon。建議使用 .ico 格式。</p>
+
+      <h2>5) Additional Files（附加檔案）</h2>
+      <p>把模型、模板、設定檔帶進輸出結果。Windows 下格式為 src;dest，等價於 --add-data。</p>
+
+      <h2>6) Advanced（進階參數）</h2>
+      <ul>
+        <li>--hidden-import：補齊動態匯入模組。</li>
+        <li>--collect-all：收集套件資源，常用於 OpenCV/YOLO。</li>
+        <li>--clean：清除快取，避免舊打包殘留。</li>
+        <li>--noconfirm：覆蓋輸出不詢問。</li>
+      </ul>
+
+      <h2>7) 轉換按鈕（Convert .py to .exe）</h2>
+      <p>按下後會開始執行 pyinstaller。完成後可在 output 目錄看到打包結果。</p>
+
+      <div class="callout">
+        <strong>建議流程：</strong>先用最小參數打包成功，再逐步加入 icon、add-data、hidden-import。
+      </div>
+
+      <p><a class="btn" href="parameters.html">回到參數頁進行互動組合</a></p>
+    </main>
+  </body>
+</html>

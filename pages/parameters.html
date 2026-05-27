@@ -52,15 +52,15 @@
       <form id="builderForm">
         <fieldset>
           <legend class="legend">輸出模式</legend>
-          <label><input type="radio" name="mode" value="--onefile" checked /> One File</label>
-          <label><input type="radio" name="mode" value="--onedir" /> One Directory</label>
+          <label><input type="radio" name="mode" value="--onefile" checked /> 單一執行檔（One File）</label>
+          <label><input type="radio" name="mode" value="--onedir" /> 資料夾模式（One Directory）</label>
         </fieldset>
 
         <fieldset>
           <legend class="legend">基本資訊</legend>
-          <label>App Name: <input id="appName" value="demo_app" /></label>
-          <label>Script Path: <input id="scriptPath" value="main.py" /></label>
-          <label>Icon Path: <input id="iconPath" placeholder="assets/app.ico" /></label>
+          <label>應用程式名稱：<input id="appName" value="demo_app" /></label>
+          <label>程式入口路徑：<input id="scriptPath" value="main.py" /></label>
+          <label>圖示路徑：<input id="iconPath" placeholder="assets/app.ico" /></label>
         </fieldset>
 
         <fieldset>
@@ -72,10 +72,10 @@
 
         <fieldset>
           <legend class="legend">進階</legend>
-          <label>Hidden Imports (comma): <input id="hiddenImports" placeholder="cv2,ultralytics" /></label>
-          <label>Add Data (one per line, src;dest):</label>
+          <label>隱藏匯入（以逗號分隔）：<input id="hiddenImports" placeholder="cv2,ultralytics" /></label>
+          <label>附加資料檔（每行一筆，格式 src;dest）：</label>
           <textarea id="addData" rows="3" placeholder="model\yolo11n.pt;model"></textarea>
-          <label>Collect All (comma): <input id="collectAll" placeholder="cv2,numpy" /></label>
+          <label>完整收集套件（以逗號分隔）：<input id="collectAll" placeholder="cv2,numpy" /></label>
         </fieldset>
       </form>
 

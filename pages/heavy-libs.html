@@ -31,6 +31,7 @@
         <li>先試 hidden-import，不夠再用 collect-all。</li>
       </ul>
       <pre class="code-block">pyinstaller --onefile --hidden-import cv2 --collect-all cv2 app_cv.py</pre>
+      <p><a class="btn" href="example-opencv.html">查看 OpenCV 範例頁</a></p>
 
       <h2>YOLO (ultralytics + torch)</h2>
       <ul>
@@ -38,6 +39,7 @@
         <li>模型路徑請以執行期路徑解析，不要寫死開發路徑。</li>
       </ul>
       <pre class="code-block">pyinstaller --onedir --collect-all ultralytics --collect-all torch --add-data "model\yolo11n.pt;model" app_yolo.py</pre>
+      <p><a class="btn" href="example-yolo.html">查看 YOLO 範例頁</a></p>
 
       <h2>FastAPI / Flask</h2>
       <ul>
@@ -45,6 +47,7 @@
         <li>EXE 適合內部 Demo，正式部署仍建議容器或服務流程。</li>
       </ul>
       <pre class="code-block">pyinstaller --onedir --add-data "templates;templates" --add-data "static;static" app_web.py</pre>
+      <p><a class="btn" href="example-web.html">查看 Web 範例頁</a></p>
 
       <h2>附屬資料檔案讀取範例</h2>
       <pre class="code-block">from pathlib import Path
@@ -60,6 +63,9 @@ model_path = resource_path("model/yolo11n.pt")</pre>
       <div class="callout">
         <strong>關鍵：</strong>重型套件先用 onedir 驗證，再決定是否轉 onefile，以免除錯成本過高。
       </div>
+
+      <h2>範例總覽</h2>
+      <p><a class="btn" href="example-opencv.html">從 OpenCV 範例開始</a></p>
     </main>
   </body>
 </html>
